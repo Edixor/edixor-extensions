@@ -50,6 +50,10 @@ for folder in sorted(os.listdir(ext_dir)):
     if 'type' not in entry or not entry['type']:
         entry['type'] = "plugin"
 
+    if not entry.get('description'):
+        warnings.append(f"{folder}: description field is empty or missing, set to default")
+        entry['description'] = "no description..."
+
     if os.path.isfile(icon_path):
         entry['icon'] = icon_path.replace('\\', '/')
     else:
@@ -63,26 +67,10 @@ for folder in sorted(os.listdir(ext_dir)):
         entry['preview'] = standard_preview
 
     if os.path.isfile(description_path):
-        entry['description'] = ''
-        try:
-            with open(description_path, 'r', encoding='utf-8') as f:
-                entry['description'] = f.read()
-        except Exception as e:
-            warnings.append(f"{folder}: failed to read descriptions.md ({e}), using standard description")
-            try:
-                with open(standard_description, 'r', encoding='utf-8') as f:
-                    entry['description'] = f.read()
-            except Exception as e2:
-                errors.append(f"Failed to load standard descriptions.md ({e2})")
-                sys.exit(1)
+        entry['inspection'] = description_path.replace('\\', '/')
     else:
         warnings.append(f"{folder}: descriptions.md not found, using standard description")
-        try:
-            with open(standard_description, 'r', encoding='utf-8') as f:
-                entry['description'] = f.read()
-        except Exception as e:
-            errors.append(f"Failed to load standard descriptions.md ({e})")
-            sys.exit(1)
+        entry['inspection'] = standard_description
 
     entry['json'] = json_path.replace('\\', '/')
     if os.path.isfile(zip_path):
