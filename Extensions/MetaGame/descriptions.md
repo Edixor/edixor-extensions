@@ -1,13 +1,13 @@
-# Плагин MG (MetaGame)
+# MG Plugin (MetaGame)
 
-**MG (MetaGame)** — это плагин, который позволяет легко добавить в готовую игру с кор механикой различные элементы метаигры по вашему усмотрению. 
+**MG (MetaGame)** is a plugin that allows you to easily add various meta-game elements to an existing game with core mechanics at your discretion.
 
-С помощью MG вы можете внедрить в проект такие функции, как:
-- Ежедневные награды  
-- Прогрессии через боевой пропуск (пасс)  
-- События и акции  
-- И многое другое  
+With MG, you can implement features such as:  
+- Daily rewards  
+- Progression through a battle pass  
+- Events and promotions  
+- And much more  
 
-Для удобной работы с метаэлементами в плагине реализована система создания и управления валютой. Это позволяет легко интегрировать внутриигровые ресурсы, необходимые для взаимодействия с метаигрой.
+For convenient handling of meta-elements, the plugin includes a currency creation and management system. This makes it easy to integrate in-game resources needed to interact with the meta-game.
 
-MG поможет расширить игровой опыт и увеличить вовлеченность игроков, добавляя гибкие и настраиваемые механики поверх основной игры.
+MG helps expand the gaming experience and increase player engagement by adding flexible and customizable mechanics on top of the core game.
