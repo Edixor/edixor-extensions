@@ -1,23 +1,14 @@
 {
-  "NewDesign": {
-    "name": "NewDesign",
-    "description": "Adds new style and layout in edixor",
-    "version": "1.5",
-    "json": "Extensions/NewDesign/extensions.json",
-    "zip": "Extensions/NewDesign/extensions.zip"
-  },
-  "TestExtren": {
-    "name": "test",
-    "description": "test description",
-    "version": "1.0",
-    "json": "Extensions/TestExtren/extensions.json",
-    "zip": "Extensions/TestExtren/extensions.zip"
-  },
-  "UpdateDebugLog": {
-    "name": "Update Debug Log",
-    "description": "мне лень тут что-то добавлять",
-    "version": "1.0",
-    "json": "Extensions/UpdateDebugLog/extensions.json",
-    "zip": "Extensions/UpdateDebugLog/extensions.zip"
+  "MetaGame": {
+    "name": "MetaGame",
+    "description": "# Плагин MG (MetaGame)\n\n**MG (MetaGame)** — это плагин, который позволяет легко добавить в готовую игру с кор механикой различные элементы метаигры по вашему усмотрению. \n\nС помощью MG вы можете внедрить в проект такие функции, как:\n- Ежедневные награды  \n- Прогрессии через боевой пропуск (пасс)  \n- События и акции  \n- И многое другое  \n\nДля удобной работы с метаэлементами в плагине реализована система создания и управления валютой. Это позволяет легко интегрировать внутриигровые ресурсы, необходимые для взаимодействия с метаигрой.\n\nMG поможет расширить игровой опыт и увеличить вовлеченность игроков, добавляя гибкие и настраиваемые механики поверх основной игры.\n",
+    "version": "0.0.1",
+    "stage": "Pre-Alpha",
+    "status": "Planned",
+    "type": "plugin",
+    "icon": "repository/resources/standard_icon.png",
+    "preview": "repository/resources/standard_preview.png",
+    "json": "Extensions/MetaGame/extensions.json",
+    "zip": "Extensions/MetaGame/extensions.zip"
   }
 }
