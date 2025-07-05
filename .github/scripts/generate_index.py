@@ -6,6 +6,11 @@ ext_dir = "Extensions"
 index_file = "index.json"
 required_fields = ["name", "version"]
 
+repo_resources = "repository/resources"
+standard_icon = os.path.join(repo_resources, "standard_icon.png").replace('\\', '/')
+standard_preview = os.path.join(repo_resources, "standard_preview.png").replace('\\', '/')
+standard_description = os.path.join(repo_resources, "standard_descriptions.md").replace('\\', '/')
+
 old_index = {}
 if os.path.isfile(index_file):
     try:
@@ -22,12 +27,16 @@ for folder in sorted(os.listdir(ext_dir)):
     subdir = os.path.join(ext_dir, folder)
     json_path = os.path.join(subdir, 'extensions.json')
     zip_path = os.path.join(subdir, 'extensions.zip')
+    icon_path = os.path.join(subdir, 'icon.png')
+    preview_path = os.path.join(subdir, 'preview.png')
+    description_path = os.path.join(subdir, 'descriptions.md')
 
     if not os.path.isdir(subdir) or not os.path.isfile(json_path):
         continue
 
     try:
-        data = json.load(open(json_path, 'r', encoding='utf-8'))
+        with open(json_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
     except Exception as e:
         errors.append(f"{folder}: failed to parse extensions.json ({e})")
         continue
@@ -37,6 +46,44 @@ for folder in sorted(os.listdir(ext_dir)):
             warnings.append(f"{folder}: missing required field '{field}' in extensions.json")
 
     entry = data.copy()
+
+    if 'type' not in entry or not entry['type']:
+        entry['type'] = "plugin"
+
+    if os.path.isfile(icon_path):
+        entry['icon'] = icon_path.replace('\\', '/')
+    else:
+        warnings.append(f"{folder}: icon.png not found, using standard icon")
+        entry['icon'] = standard_icon
+
+    if os.path.isfile(preview_path):
+        entry['preview'] = preview_path.replace('\\', '/')
+    else:
+        warnings.append(f"{folder}: preview.png not found, using standard preview")
+        entry['preview'] = standard_preview
+
+    if os.path.isfile(description_path):
+        entry['description'] = ''
+        try:
+            with open(description_path, 'r', encoding='utf-8') as f:
+                entry['description'] = f.read()
+        except Exception as e:
+            warnings.append(f"{folder}: failed to read descriptions.md ({e}), using standard description")
+            try:
+                with open(standard_description, 'r', encoding='utf-8') as f:
+                    entry['description'] = f.read()
+            except Exception as e2:
+                errors.append(f"Failed to load standard descriptions.md ({e2})")
+                sys.exit(1)
+    else:
+        warnings.append(f"{folder}: descriptions.md not found, using standard description")
+        try:
+            with open(standard_description, 'r', encoding='utf-8') as f:
+                entry['description'] = f.read()
+        except Exception as e:
+            errors.append(f"Failed to load standard descriptions.md ({e})")
+            sys.exit(1)
+
     entry['json'] = json_path.replace('\\', '/')
     if os.path.isfile(zip_path):
         entry['zip'] = zip_path.replace('\\', '/')
@@ -73,7 +120,6 @@ if errors:
     for e in errors:
         print("  -", e)
     sys.exit(1)
-
 
 with open(index_file, 'w', encoding='utf-8') as f:
     json.dump(new_index, f, indent=2, ensure_ascii=False)
