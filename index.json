@@ -1,7 +1,7 @@
 {
   "MetaGame": {
     "name": "MetaGame",
-    "description": "# Плагин MG (MetaGame)\n\n**MG (MetaGame)** — это плагин, который позволяет легко добавить в готовую игру с кор механикой различные элементы метаигры по вашему усмотрению. \n\nС помощью MG вы можете внедрить в проект такие функции, как:\n- Ежедневные награды  \n- Прогрессии через боевой пропуск (пасс)  \n- События и акции  \n- И многое другое  \n\nДля удобной работы с метаэлементами в плагине реализована система создания и управления валютой. Это позволяет легко интегрировать внутриигровые ресурсы, необходимые для взаимодействия с метаигрой.\n\nMG поможет расширить игровой опыт и увеличить вовлеченность игроков, добавляя гибкие и настраиваемые механики поверх основной игры.\n",
+    "description": "# MG Plugin (MetaGame)\n\n**MG (MetaGame)** is a plugin that allows you to easily add various meta-game elements to an existing game with core mechanics at your discretion.\n\nWith MG, you can implement features such as:  \n- Daily rewards  \n- Progression through a battle pass  \n- Events and promotions  \n- And much more  \n\nFor convenient handling of meta-elements, the plugin includes a currency creation and management system. This makes it easy to integrate in-game resources needed to interact with the meta-game.\n\nMG helps expand the gaming experience and increase player engagement by adding flexible and customizable mechanics on top of the core game.\n",
     "version": "0.0.1",
     "stage": "Pre-Alpha",
     "status": "Planned",
