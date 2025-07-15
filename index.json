@@ -1,15 +1,18 @@
 {
-  "MetaGame": {
-    "name": "MetaGame",
-    "description": "this a plugin that allows you to easily add various meta-game elements to an existing game with core mechanics at your discretion.",
-    "version": "0.0.1",
-    "stage": "Pre-Alpha",
-    "status": "Planned",
-    "type": "plugin",
-    "icon": "repository/resources/standard_icon.png",
-    "preview": "repository/resources/standard_preview.png",
-    "inspection": "Extensions/MetaGame/descriptions.md",
-    "json": "Extensions/MetaGame/extensions.json",
-    "zip": "Extensions/MetaGame/extensions.zip"
+  "version": "2025-07-15T10:13:47Z",
+  "entries": {
+    "MetaGame": {
+      "name": "MetaGame",
+      "description": "this a plugin that allows you to easily add various meta-game elements to an existing game with core mechanics at your discretion.",
+      "version": "0.0.1",
+      "stage": "Pre-Alpha",
+      "status": "Planned",
+      "type": "plugin",
+      "icon": "repository/resources/standard_icon.png",
+      "preview": "repository/resources/standard_preview.png",
+      "inspection": "Extensions/MetaGame/descriptions.md",
+      "json": "Extensions/MetaGame/extensions.json",
+      "zip": "Extensions/MetaGame/extensions.zip"
+    }
   }
 }
